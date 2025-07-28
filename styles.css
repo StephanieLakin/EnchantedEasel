@@ -198,42 +198,48 @@ header{
     cursor: pointer;
     margin: 1.5rem 0;
 }
-.design-img{
-    position: relative;
-    overflow: hidden;
+.design-img {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 350px; /* Fixed height for uniformity */
 }
-.design-img::after{
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
+.design-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crop to fill, maintaining aspect ratio */
+  object-position:center; /* Center the image */
+  transition: all 0.5s ease; /* hover transition */
 }
-.design-img img{
-    transition:  all 0.5s ease;
+.design-item:hover img {
+  transform: scale(1.2); /* Preserve zoom effect */
 }
-.design-item:hover img{
-    transform: scale(1.2);
+
+/* Remove the existing ::after overlay and add a decorative frame */
+.design-img {
+  border: 4px solid var(--orange); /* Decorative frame with orange accent */
+  border-radius: 10px; /* Rounded corners for a modern look */
+  background: rgba(0, 0, 0, 0.1); /* Subtle background to enhance frame */
 }
-.design-img span:first-of-type{
-    position: absolute;
-    z-index: 1;
-    top: 10px;
-    left: 10px;
-    background: var(--exDark);
-    color: #fff;
-    padding: 0.25rem 1rem;
+
+/* Adjust spans to work with the new frame */
+.design-img span:first-of-type {
+  top: 15px; /* Adjust to avoid frame overlap */
+  left: 15px;
+  background: var(--exDark);
+  color: #fff;
+  padding: 0.25rem 1rem;
+  border-radius: 5px; /* Match frame style */
 }
-.design-img span:last-of-type{
-    position: absolute;
-    z-index: 1;
-    bottom: 10px;
-    right: 10px;
-    color: #fff;
-    font-weight: 700;
-    font-size: 1.1rem;
+.design-img span:last-of-type {
+  bottom: 15px; /* Adjust to avoid frame overlap */
+  right: 15px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  background: var(--exDark);
+  padding: 0.25rem 0.6rem;
+  border-radius: 5px; /* Match frame style */
 }
 .design-title{
     padding: 1rem;
@@ -257,7 +263,7 @@ header{
 .blog-content{
     margin: 2rem 0;
 }
-.blog-img{
+/* .blog-img{
     position: relative;
 }
 .blog-img span{
@@ -268,6 +274,19 @@ header{
     color: #fff;
     font-size: 1.4rem;
     padding: 0.3rem 0.6rem;
+} */
+
+.blog-img {
+  position: relative;
+  width: 100%;
+  height: 200px; /* Fixed height for uniformity */
+  overflow: hidden; /* Ensure cropped images don’t overflow */
+}
+.blog-img img {
+  width: 100%;
+  height: 100%; /* Match parent height */
+  object-fit: cover; /* Crop to fill, maintaining aspect ratio */
+  object-position: center; /* Centering the image */
 }
 .blog-text{
     margin: 2.2rem 0;
@@ -305,18 +324,22 @@ header{
     background: var(--exDark);
 }
 
+.blog-title{
+    padding-top: 80px;
+}
+
 /* about */
 .about{
     padding: 4.5rem 0;
     background-color: #000;
 }
 .about-text{
-    margin: 2rem 0;    
+    margin: 2rem 0;
+        
 }
 .about-text > p{
     font-size: 1.1rem;
-    padding: 0.6rem 0;
-    opacity: 0.8;    
+    padding: 0.6rem 0;       
 }
 
 /* footer */
